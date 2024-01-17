@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import ProductList from './features/product-list/ProductList';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-     <Counter></Counter>
+     <ProductList></ProductList>
     </div>
   );
 }
