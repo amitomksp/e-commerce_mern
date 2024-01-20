@@ -32,7 +32,13 @@ export const counterSlice = createSlice({
       });
   },
 });
-
+.addCase(incrementAsync.pending, (state) => {
+  state.status = 'loading';
+})
+.addCase(incrementAsync.fulfilled, (state, action) => {
+  state.status = 'idle';
+  state.value += action.payload;
+});
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 export const selectCount = (state) => state.counter.value;
