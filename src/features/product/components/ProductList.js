@@ -1,4 +1,8 @@
+<<<<<<< HEAD
  //filter section is not working
+=======
+//sorting option is not working so we will fix later
+>>>>>>> origin/main
 import React, { useState, Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
