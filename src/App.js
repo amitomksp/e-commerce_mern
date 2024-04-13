@@ -3,7 +3,6 @@ import './App.css';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import Checkout from "./pages/Checkout"
 
 import {
   createBrowserRouter,
@@ -13,7 +12,8 @@ import {
 } from 'react-router-dom';
 import Cart from './features/cart/Cart';
 import CartPage from './pages/CartPage';
-import ProductDetailPage from "./pages/ProductDetailPage"
+import Checkout from './pages/Checkout';
+import ProductDetailPage from './pages/ProductDetailPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,16 +27,16 @@ const router = createBrowserRouter([
     path: '/signup',
     element: <SignupPage></SignupPage>,
   },
-  {
+  { 
     path: '/cart',
     element: <CartPage></CartPage>,
   },
-  {
+  { 
     path: '/checkout',
     element: <Checkout></Checkout>,
   },
   { 
-    path: '/product-detail',
+    path: '/product-detail/:id',
     element: <ProductDetailPage></ProductDetailPage>,
   },
 ]);
