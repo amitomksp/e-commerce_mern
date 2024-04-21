@@ -80,6 +80,15 @@ export default function ProductList() {
     setFilter(newFilter);
   };
 
+
+  //my own code not work i think json format sorting problem 
+  // const handleSort = (e, option) => {
+  //   const newFilter = {...filter, _sort: option.sort, _order: option.order };
+  //   console.log({ newFilter });
+  //   setFilter(newFilter);
+  //   dispatch(fetchProductsByFiltersAsync((newFilter)));
+  // };
+  
   const handleSort = (e, option) => {
     const sort = { _sort: option.sort, _order: option.order };
     console.log({ sort });
