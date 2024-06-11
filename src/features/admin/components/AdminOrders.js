@@ -133,7 +133,7 @@ function AdminOrders() {
                             />
                           </div>
                           <span>
-                            {item.title} - #{item.quantity} - $
+                            {item.title} - #{item.quantity} - Rs
                             {discountedPrice(item)}
                           </span>
                         </div>
@@ -141,7 +141,7 @@ function AdminOrders() {
                     </td>
                     <td className="py-3 px-6 text-center">
                       <div className="flex items-center justify-center">
-                        ${order.totalAmount}
+                        Rs{order.totalAmount}
                       </div>
                     </td>
                     <td className="py-3 px-6 text-center">
@@ -166,7 +166,7 @@ function AdminOrders() {
                         </select>
                       ) : (
                         <span
-                          className={`${chooseColor(
+                          className={`Rs{chooseColor(
                             order.status
                           )} py-1 px-3 rounded-full text-xs`}
                         >

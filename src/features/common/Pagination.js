@@ -53,7 +53,7 @@ export default function Pagination({ page, setPage, handlePage, totalItems }) {
                 <div
                   onClick={(e) => handlePage(index + 1)}
                   aria-current="page"
-                  className={`relative cursor-pointer z-10 inline-flex items-center ${
+                  className={`relative cursor-pointer z-10 inline-flex items-center Rs{
                     index + 1 === page
                       ? 'bg-indigo-600 text-white'
                       : 'text-gray-400'

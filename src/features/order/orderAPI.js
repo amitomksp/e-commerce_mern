@@ -26,10 +26,10 @@ export function fetchAllOrders(sort, pagination) {
  let queryString = '';
 
  for (let key in sort) {
-  queryString += `${key}=${sort[key]}&`;
+  queryString += `Rs{key}=Rs{sort[key]}&`;
 }
   for (let key in pagination) {
-    queryString += `${key}=${pagination[key]}&`;
+    queryString += `Rs{key}=Rs{pagination[key]}&`;
   }
 
   return new Promise(async (resolve) => {

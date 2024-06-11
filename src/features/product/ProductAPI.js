@@ -57,15 +57,15 @@ export function fetchProductsByFilters(filter, sort, pagination) {
     const categoryValues = filter[key];
     if (categoryValues.length) {
       const lastCategoryValue = categoryValues[categoryValues.length - 1];
-      queryString += `${key}=${lastCategoryValue}&`;
+      queryString += `Rs{key}=Rs{lastCategoryValue}&`;
     }
   }
   for (let key in sort) {
-    queryString += `${key}=${sort[key]}&`;
+    queryString += `Rs{key}=Rs{sort[key]}&`;
   }
   console.log(pagination);
   for (let key in pagination) {
-    queryString += `${key}=${pagination[key]}&`;
+    queryString += `Rs{key}=Rs{pagination[key]}&`;
   }
 
   return new Promise(async (resolve) => {
