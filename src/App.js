@@ -12,12 +12,12 @@ import Protected from './features/auth/components/Protected';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser } from './features/auth/authSlice';
-import { fetchItemsByUserIdAsync } from './features/cart/CartSlice';
+import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFound from './pages/404';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserOrdersPage from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
-import { fetchLoggedInUserAsync } from './features/user/UserSlice';
+import { fetchLoggedInUserAsync } from './features/user/userSlice';
 import Logout from './features/auth/components/Logout';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
@@ -116,15 +116,27 @@ const router = createBrowserRouter([
   },
   {
     path: '/order-success/:id',
-    element: <OrderSuccessPage></OrderSuccessPage>,
+    element: (
+      <Protected>
+        <OrderSuccessPage></OrderSuccessPage>{' '}
+      </Protected>
+    ),
   },
   {
     path: '/orders',
-    element: <UserOrdersPage></UserOrdersPage>,
+    element: (
+      <Protected>
+        <UserOrdersPage></UserOrdersPage>{' '}
+      </Protected>
+    ),
   },
   {
     path: '/profile',
-    element: <UserProfilePage></UserProfilePage>,
+    element: (
+      <Protected>
+        <UserProfilePage></UserProfilePage>{' '}
+      </Protected>
+    ),
   },
   {
     path: '/logout',
