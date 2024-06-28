@@ -4,7 +4,7 @@ import {
   fetchLoggedInUserOrderAsync,
   selectUserInfo,
   selectUserOrders,
-} from '../userSlice';
+} from '../UserSlice';
 import { discountedPrice } from '../../../app/constants';
 
 export default function UserOrders() {

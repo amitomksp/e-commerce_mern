@@ -5,7 +5,7 @@ import {
   selectCartStatus,
   selectItems,
   updateCartAsync,
-} from './cartSlice';
+} from './CartSlice';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { discountedPrice } from '../../app/constants';

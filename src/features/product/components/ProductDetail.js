@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid';
 import { RadioGroup } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductByIdAsync, selectProductById, selectProductListStatus } from '../productSlice';
+import { fetchProductByIdAsync, selectProductById, selectProductListStatus } from '../ProductSlice';
 import { useParams } from 'react-router-dom';
-import { addToCartAsync, selectItems } from '../../cart/cartSlice';
+import { addToCartAsync, selectItems } from '../../cart/CartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { discountedPrice } from '../../../app/constants';
 import { useAlert } from 'react-alert';
@@ -63,7 +63,7 @@ export default function ProductDetail() {
       };
       dispatch(addToCartAsync(newItem));
       // TODO: it will be based on server response of backend
-      alert.error('Item added to Cart');
+      alert.success('Item added to Cart');
     } else {
       alert.error('Item Already added');
     }
