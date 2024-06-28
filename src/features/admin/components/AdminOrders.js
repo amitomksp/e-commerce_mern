@@ -116,7 +116,7 @@ function AdminOrders() {
               </thead>
               <tbody className="text-gray-600 text-sm font-light">
                 {orders.map((order) => (
-                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                  <tr key={order.id} className="border-b border-gray-200 hover:bg-gray-100">
                     <td className="py-3 px-6 text-left whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="mr-2"></div>
@@ -124,8 +124,8 @@ function AdminOrders() {
                       </div>
                     </td>
                     <td className="py-3 px-6 text-left">
-                      {order.items.map((item) => (
-                        <div className="flex items-center">
+                      {order.items.map((item, index) => (
+                        <div key={index}  className="flex items-center">
                           <div className="mr-2">
                             <img
                               className="w-6 h-6 rounded-full"
@@ -133,7 +133,7 @@ function AdminOrders() {
                             />
                           </div>
                           <span>
-                            {item.title} - #{item.quantity} - Rs
+                            {item.title} - #{item.quantity} - $
                             {discountedPrice(item)}
                           </span>
                         </div>
@@ -141,7 +141,7 @@ function AdminOrders() {
                     </td>
                     <td className="py-3 px-6 text-center">
                       <div className="flex items-center justify-center">
-                        Rs{order.totalAmount}
+                        ${order.totalAmount}
                       </div>
                     </td>
                     <td className="py-3 px-6 text-center">
@@ -166,7 +166,7 @@ function AdminOrders() {
                         </select>
                       ) : (
                         <span
-                          className={`Rs{chooseColor(
+                          className={`${chooseColor(
                             order.status
                           )} py-1 px-3 rounded-full text-xs`}
                         >

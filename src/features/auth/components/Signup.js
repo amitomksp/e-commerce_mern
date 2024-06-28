@@ -15,7 +15,6 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
 
-  console.log(errors);
 
   return (
     <>
@@ -43,7 +42,7 @@ export default function Signup() {
                   password: data.password,
                   addresses: [],
                   role:'user'
-                  //this can be directly given to the backend
+                  //TODO: this role can be directly given on backend
                 })
               );
               console.log(data);
@@ -91,7 +90,7 @@ export default function Signup() {
                     required: 'password is required',
                     pattern: {
                       value:
-                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}Rs/gm,
+                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
                       message: `- at least 8 characters\n
                       - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
                       - Can contain special characters`,

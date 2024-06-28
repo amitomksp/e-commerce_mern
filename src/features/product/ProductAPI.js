@@ -32,7 +32,7 @@ export function createProduct(product) {
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      'http://localhost:8081/products/' + update.id,
+      'http://localhost:8080/products/' + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -57,21 +57,20 @@ export function fetchProductsByFilters(filter, sort, pagination) {
     const categoryValues = filter[key];
     if (categoryValues.length) {
       const lastCategoryValue = categoryValues[categoryValues.length - 1];
-      queryString += `Rs{key}=Rs{lastCategoryValue}&`;
+      queryString += `${key}=${lastCategoryValue}&`;
     }
   }
   for (let key in sort) {
-    queryString += `Rs{key}=Rs{sort[key]}&`;
+    queryString += `${key}=${sort[key]}&`;
   }
-  console.log(pagination);
   for (let key in pagination) {
-    queryString += `Rs{key}=Rs{pagination[key]}&`;
+    queryString += `${key}=${pagination[key]}&`;
   }
 
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
     const response = await fetch(
-      'http://localhost:8081/products?' + queryString
+      'http://localhost:8080/products?' + queryString
     );
     const data = await response.json();
     const totalItems = await response.headers.get('X-Total-Count');
